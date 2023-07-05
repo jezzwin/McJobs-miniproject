@@ -1,0 +1,7 @@
+flask
+pandas
+bs4
+selenium
+lxml
+requests
+importlib_metadata

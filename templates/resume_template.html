@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 2.0;
+            background-color: #9e9e9e;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .resume {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+            padding: 40px;
+            box-shadow: 30 30 30px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .resume h1 {
+            margin: 0;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            color: rgb(0, 19, 54);
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .resume h2 {
+            margin: 0;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            color: rgb(0, 20, 35);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .resume h3 {
+            margin: 0;
+            color: rgb(255, 0, 0);
+            font-size: 18px;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .resume p {
+            margin: 0;
+            font-size: 16px;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .resume ul {
+            margin: 0;
+            padding: 0;
+            list-style: star;
+        }
+
+        .resume ul li {
+            margin-bottom: 5px;
+        }
+
+        .section-title {
+            color: rgb(0, 41, 73);
+            font-size: 22px;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgb(0, 23, 54);
+        }
+
+        .section-content {
+            margin-top: 10px;
+        }
+
+        .section-content p {
+            color: rgb(0, 19, 142);
+            font-family: "Helvetica Black", Arial, sans-serif;
+        }
+
+        .section-content ul li {
+            color: rgb(0, 0, 0);
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <h1>{{ name }}</h1>
+
+        <h2>Contact</h2>
+        <p>Email: {{ email }}</p>
+        <p>Phone: {{ phone }}</p>
+        <p>Address: {{ address }}</p>
+
+        <div class="section-title">Education</div>
+        <div class="section-content">
+            <ul>
+                <li>{{ education }}</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Trainings</div>
+        <div class="section-content">
+            <ul>
+                <li>{{ trainings }}</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Projects</div>
+        <div class="section-content">
+            <ul>
+                <li>{{ projects }}</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Skills</div>
+        <div class="section-content">
+            <ul>
+                <li>{{ skills }}</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Roles of Responsibility</div>
+        <div class="section-content">
+            <ul>
+                <li>{{ roles }}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - McJobs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="McJobs Logo">
+            <h1>McJobs</h1>
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}" class="button-home">Home</a>
+        </nav>
+    </header>
+
+    <section class="login-article">
+        <article>
+            <h2>LOGIN</h2>
+            <form class="login-form" method="POST" action="{{ url_for('login') }}">
+                <section class="login-section">
+                    <label for="email">Email - id :</label>
+                    <input type="email" name="email" id="email" class="login-input" placeholder="Enter your email">
+
+                </section>
+                <section class="login-section">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="login-input" placeholder="Enter your password">
+
+                </section>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+            <p>{{ error_message }}</p>
+            <p>If not registered, <a href="signup.html" color="white" >sign up</a> now!</p>
+        </article>
+    </section>
+</body>
+</html>

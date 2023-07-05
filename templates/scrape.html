@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrape - McJobs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+          body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/static/animated-background.gif");
+            background-size: cover;
+            background-position: center;
+            background-color: #ffffff; /* Fallback color if the image fails to load */
+        }
+
+        header {
+            display: flex;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 30px;
+            margin-left: 20px;
+            margin-right: 8px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container h1 {
+            font-family: "Helvetica Bold", "Helvetica", Arial, sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .form-container {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-family: "Helvetica Bold", Arial, sans-serif;
+        }
+
+        .form-container input[type="text"],
+        .form-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-family: "Helvetica", Arial, sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button[type="submit"] {
+            padding: 12px 24px;
+            background-color: rgb(0, 128, 233);
+            color: #fff;
+            font-family: "Helvetica Bold", Arial, sans-serif;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button[type="submit"]:hover {
+            background-color: blue; /* Change the color as desired */
+        }
+
+        .success-message {
+            color: green;
+            font-family: "Helvetica Bold", Arial, sans-serif;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-family: "Helvetica Bold", Arial, sans-serif;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function confirmLogout() {
+            var result = confirm("Are you sure you want to logout?");
+            if (result) {
+                window.location.href = "{{ url_for('login') }}";  // Redirect to login page
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="McJobs Logo">
+            <h1>McJobs</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="history.html" class="button">History</a></li>
+                <li><a href="#" class="button" onclick="confirmLogout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>SCRAPE FOR JOBS</h1>
+
+        <div class="form-container">
+            <form action="/scrape" method="POST">
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" placeholder="Enter the job title" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="Enter the location" required>
+
+                <button type="submit">Scrape</button>
+            </form>
+
+            {% if success_message %}
+                <p class="success-message">{{ success_message }}</p>
+            {% endif %}
+
+            {% if error_message %}
+                <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

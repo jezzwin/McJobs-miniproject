@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indeed Job Scraper - Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("/static/animated_background.gif");
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            display: flex;
+            font-family: "Helvetica Black", Arial, sans-serif;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 30px;
+            margin-left: 20px;
+            margin-right: 8px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 10px;
+            padding: 20px;
+            text-align: left;
+            background-color: #ffffff;
+        }
+
+        .container h1 {
+            font-family: "Helvetica Bold", "Helvetica", Arial, sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #abdfff;
+            font-family: "Helvetica", Arial, sans-serif;
+            text-align: left;
+        }
+
+        table th,
+        table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 2px solid rgb(255, 255, 255);
+        }
+
+        table th {
+            background-color: #86b2ff;
+            font-weight: bold;
+        }
+
+        .link-column a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="McJobs Logo">
+            <h1>McJobs</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="scrape.html" class="button">Scrape</a></li>
+                <li><a href="#" class="button" onclick="confirmLogout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Indeed Job Scraper - Results</h1>
+        
+        <div>
+            {% if html_table %}
+                {{ html_table | safe }}
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function confirmLogout() {
+            var result = confirm("Are you sure you want to logout?");
+            if (result) {
+                window.location.href = "{{ url_for('login') }}";  // Redirect to login page
+            }
+        }
+    </script>
+</body>
+</html>

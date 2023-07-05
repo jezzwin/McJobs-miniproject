@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - McJobs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .about-article {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 40px;
+            overflow-y: scroll;
+            height: 500px;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .about-article p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="McJobs Logo">
+            <h1>McJobs</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="history.html" class="button">History</a></li>
+                <li><a href="#" class="button" onclick="confirmLogout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-article">
+        <h2>About Us</h2>
+        <p>
+            McJobs is a project aimed at providing a convenient platform for job seekers to
+            create their resumes and search for relevant job opportunities. Our team is dedicated
+            to simplifying the job application process and helping individuals in their career development.
+        </p>
+        <p>
+            Our team members include:
+        </p>
+        <ul>
+            <li>John Doe</li>
+            <li>Jane Smith</li>
+            <li>Michael Johnson</li>
+        </ul>
+        <p>
+            We strive to offer a user-friendly experience and valuable resources to support job seekers
+            in their journey towards finding meaningful employment.
+        </p>
+    </section>
+</body>
+</html>
